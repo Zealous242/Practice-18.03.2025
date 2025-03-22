@@ -28,3 +28,31 @@ const HCF = (num1, num2) => {
 
     return commonFactors[0];
 }
+
+const isPrime = (num) => {
+    let divisorsBetween1andNum = 0;
+
+    if(num === 0 || num === 1) return false;
+    else{
+        for(let i = 2; i < num; i++){
+            if(num%i === 0) divisorsBetween1andNum++;
+        }
+        if(divisorsBetween1andNum === 0) return true;
+        else return false;
+    }
+}
+
+const listPrimes = (num1, num2) => {
+    let primeList = [];
+
+    if(num1 > num2){
+        let temp = num1;
+        num1 = num2;
+        num2 = temp;
+    }
+    
+    for(let i = num1 + 1; i < num2; i++){
+        if(isPrime(i) === true) primeList.push(i);
+    }
+    return primeList;
+}
